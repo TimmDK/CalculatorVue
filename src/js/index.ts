@@ -1,35 +1,28 @@
-let words: string[] = [];
-let wordOutput: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("wordOutput");
+var app = new Vue({
+    el: '#app',
 
-let saveBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("saveBtn");
-let showBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("showBtn");
-let clearBtn: HTMLButtonElement = <HTMLButtonElement>document.getElementById("clearBtn");
+    data: {
+        number1: 0,
+        number2: 0,
+        operator: null,
+        result: 0
+    },
 
-saveBtn.addEventListener("click", save);
-showBtn.addEventListener("click", show);
-clearBtn.addEventListener("click", clear);
+    methods: {
+        
+        calculate: function()
+        {
+            if(this.operator == "+")
+            this.result = ((this.number1) + (this.number2))
 
-function save():void{
-    console.log("Test save");
-    let wordInput: HTMLInputElement = <HTMLInputElement> document.getElementById("wordInput");
-    let word: string = wordInput.value;
-    wordOutput.innerHTML = "Du har gemt " + word;
-    words.push(word);
-}
+            else if(this.operator == "-")
+            this.result = ((this.number1) - (this.number2))
 
-function show():void{
-    console.log("Test show");
-    if(words && words.length)
-    {    
-        document.getElementById("wordOutput").innerHTML = words.toString();  
+            else if(this.operator == "*")
+            this.result = ((this.number1) * (this.number2))
+
+            else if(this.operator == "/")
+            this.result = ((this.number1) / (this.number2))
+        }
     }
-    else
-    {
-        document.getElementById("wordOutput").innerHTML = "<i>Din liste er tom</i>"   
-    }
-}
-
-function clear():void{
-    words = [];
-    document.getElementById("wordOutput").innerHTML = "Du har ryddet listen af dine gemte ord"
-}
+})

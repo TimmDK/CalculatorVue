@@ -3,17 +3,23 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <title>Coding Template</title>
+  <title>Calculator</title>
   <link rel="stylesheet" type="text/css" href="bundle.css">
 </head>
 
 <body>
   <h1>Collect words</h1>  
   <div id="app">
-    <input type="text" placeholder="Number 1">
-    <select>
+    <input type="number" placeholder="Number 1" v-model.number="number1">
+    <select v-model="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
     </select>
-    <input type="text" placeholder="Number 2">
+    <input type="number" placeholder="Number 2" v-model.number="number2">
+    <button v-on:click="calculate">=</button>
+    <span>{{result}}</span>
   </div>
     
   <script src="bundle.js"></script>
