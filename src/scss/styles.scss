@@ -1,0 +1,17 @@
+$fontColor: #0091aa;
+$colorHeading: #be4a14;
+#formWrapper  // div with id: content
+{
+    border: 1px solid;
+    padding: 30px;
+    color: $fontColor;
+}
+
+h2
+{
+    color: $colorHeading;
+}
+
+h1{
+    @extend h2;
+}
